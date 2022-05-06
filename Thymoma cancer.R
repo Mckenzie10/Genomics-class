@@ -4,7 +4,7 @@ if (!require("BiocManager", quietly = TRUE))
 install.packages("devtools")
 devtools::install_github("mariodeng/FirebrowseR")
 require(FirebrowseR)
-mRNA.Exp = Samples.mRNASeq(format = "csv", gene = c("PTEN", "RUNX1"),tcga_participant_barcode = c("TCGA-GF-A4EO","TCGA-AC-A2FG"))
+mRNA.Exp = Samples.mRNASeq(format = "csv", gene = c("HRAS", "NRAS"),tcga_participant_barcode = c("CAPNS1-GF-DHX33","TP53-AC-GTF21"))
 mRNA.Exp[, c("tcga_participant_barcode", "expression_log2", "z.score")]
 cohorts = Metadata.Cohorts(format = "csv")
 cancer.Type = cohorts[grep("thymoma", cohorts$description, ignore.case = T), 1]
@@ -14,7 +14,7 @@ dim(THYM.Pats)
 all.Received = F
 page.Counter = 1
 page.size = 150
-THYM.Pats = list()
+THYM.Pats = list(10)
 while(all.Received == F)
 THYM.Pats[[page.Counter]] = Samples.Clinical(format = "csv",cohort = cancer.Type, page_size = page.size,page = page.Counter)                                               
   if(page.Counter > 1)  
@@ -28,4 +28,7 @@ all.Found = F
 page.Counter= 1
 mRNA.Exp = list()
 page.Size = 2000
-while(all.Found == F){mRNA.Exp[[page.Counter]] = Samples.mRNASeq}(format = "csv",mRNA.Exp[[page.Counter]] = Samples.mRNASeq)(format = "csv", mRNA.Exp[[page.Counter]]) = Samples.mRNASeq(format = "csv",gene = diff.Exp.Genes,cohort = "THYM",tcga_participant_barcode =tcga_participant_barcode =THYM.Pats$tcga_participant_barcode,page_size = page.Size,page_size = page.Size,page = page.Counter)
+while(all.Found=F){mRNA.Exp[[page.Counter]]=Samples.mRNASeq}(format="csv") gene(diff.Exp.Genes, cohort ="THYM") tcga_participant_barcode=THYM.Pats$tcga_participant_barcode=Counter
+library(ggplot2)
+data<-THYM.Pats
+ggplot_add(object_name=cohorts)
