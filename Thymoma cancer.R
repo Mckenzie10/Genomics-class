@@ -18,12 +18,12 @@ THYM.Pats = list()
 while(all.Received == F)
 THYM.Pats[[page.Counter]] = Samples.Clinical(format = "csv",cohort = cancer.Type, page_size = page.size,page = page.Counter)                                               
   if(page.Counter > 1)  
-colnames(THYM.Pats[[page.Counter]]) = colnames(THYM.Pats[[page.Counter-1]])    
+colnames(THYM.Pats[[page.Counter]])   
 if(nrow(THYM.Pats[[page.Counter]])<page.size){all.Received = T} else{page.Counter=page.Counter+1}   
 THYM.Pats = do.call(rbind, THYM.Pats)
 dim(THYM.Pats)
 THYM.Pats = THYM.Pats[ which(THYM.Pats$vital_status == "dead"), ]
-diff.Exp.Genes = c("ESR1", "GATA3", "XBP1", "FOXA1", "ERBB2", "GRB7", "EGFR","FOXC1", "MYC")                                                     
+diff.Exp.Genes = c("FOXD1", "NRAS", "DHX33", "ATRN", "HRAS", "GTF21", "TP53","CAPNS1")                                                     
 all.Found = F 
 page.Counter= 1
 mRNA.Exp = list()
