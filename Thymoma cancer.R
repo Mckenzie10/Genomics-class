@@ -31,4 +31,4 @@ page.Size = 2000
 while(all.Found=F){mRNA.Exp[[page.Counter]]=Samples.mRNASeq}(format="csv") gene(diff.Exp.Genes, cohort ="THYM") tcga_participant_barcode=THYM.Pats$tcga_participant_barcode=Counter
 library(ggplot2)
 data<-THYM.Pats
-ggplot_add(object_name=cohorts)
+ggplot_add(object_name="THYM.Pats")
